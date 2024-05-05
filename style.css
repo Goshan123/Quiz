@@ -136,7 +136,13 @@ h1, h2{
     justify-content: center;
     align-items: center;
     gap: 24px;
-    color: var(--secondary-color);
+}
+.result-question{
+    background: var(--secondary-color);
+    color: var(--main-color);
+    padding: 0px 15px;
+    border-radius: 8px;
+    width: 100%;
 }
 .result-cont p{
     font-size: 20px;   
