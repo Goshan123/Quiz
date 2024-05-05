@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="root">
+      <section id="start-page">
+        <h1>QUIZ</h1>
+        <div class="params-list">
+          <div class="params-item">
+            <h3>Select categories of questions:</h3>
+            <div class="categories">
+              <p id="general_knowledge">general knowledge</p>
+              <p id="arts_and_literature">art and literature</p>
+              <p id="food_and_drink">food and drink</p>
+              <p id="film_and_tv">film and tv</p>
+              <p id="geography">geography</p>
+              <p id="history">history</p>
+              <p id="science">science</p>
+              <p id="music">music</p>
+              <p id="sport_and_leisure">sport</p>
+            </div>
+          </div>
+          <div class="params-item">
+            <h3>Select number of questions:</h3>
+            <div class="number">
+              <p id="5">5</p>
+              <p id="10">10</p>
+              <p id="15">15</p>
+              <p id="random">from 5 to 15</p>
+            </div>
+          </div>
+          <div class="params-item">
+            <h3>Select difficulty of questions:</h3>
+            <div class="difficulty">
+              <p id="easy">easy</p>
+              <p id="medium">medium</p>
+              <p id="hard">hard</p>
+            </div>
+          </div>
+        </div>
+        <button class="start-quiz">Start Quiz</button>
+      </section>
+      <section id="loading-page" class="hidden">
+        <h2>Loading</h2>
+        <span class="loader"></span>
+      </section>
+      <section id="questions-page" class="hidden">
+        <div>
+          <h2></h2>
+          <div class="answer-list">
+            <p class="answer"></p>
+            <p class="answer"></p>
+            <p class="answer"></p>
+            <p class="answer"></p>
+          </div>
+          <button class="answer-button">ANSWER</button>
+        </div>
+      </section>
+      <section id="result-page" class="hidden">
+        <h2 class="user-result">Your result - <span class="quiz-result"></span></h2>
+        <div class="result-cont">
+          <button class="start-again-button">Start Again</button>
+        </div>
+      </section>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
