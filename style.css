@@ -153,3 +153,7 @@ h1, h2{
 #result-page{
     padding-bottom: 16px;
 }
+.question-number{
+    color: var(--secondary-color);
+    font-size: 35px;
+}

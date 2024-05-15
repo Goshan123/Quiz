@@ -47,6 +47,7 @@ startButton.addEventListener("click", () => {
     setTimeout(() => {
       togglePageVisibility(loadingPage, questionsPage);
       renderQuizQuestion(quizInfo[activeQuestionIndex]);
+      setQuestionNumeration()
     }, 1500);
   } else {
     alert("You should select all of the following quiz parametres");
@@ -63,6 +64,7 @@ answerButton.addEventListener("click", () => {
     activeQuestionIndex = activeQuestionIndex + 1;
     if (activeQuestionIndex < quizInfo.length) {
       renderQuizQuestion(quizInfo[activeQuestionIndex]);
+      setQuestionNumeration()
     } else {
       renderResultPage();
     }
@@ -208,4 +210,9 @@ function renderQuestionInfo() {
     fragment += questionInfo;// тоже самое что fragment = fragment + questioonInfo
   });
   resultCont.insertAdjacentHTML("afterbegin", fragment)
+}
+function setQuestionNumeration(){
+  let questionNumberElement = document.querySelector(".question-number")
+  let newValue = activeQuestionIndex + 1 + "/" + quizInfo.length
+  questionNumberElement.textContent = newValue
 }
