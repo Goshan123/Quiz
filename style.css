@@ -19,39 +19,26 @@ body{
     margin: 0 auto;
     height: 100vh;
     overflow: hidden;
+    padding: 30px 0px;
+    box-sizing: border-box;
 }
 .hidden{
     display: none;
 }
 h1, h2{
-    font-size: 50px;
+    font-size: 40px;
     color: var(--secondary-color);
-}
-.params-item{
-    width: 30%;
-    background: var(--secondary-color);
-    color: var(--main-color);
-    padding: 15px 0;
-    border-radius: 8px;
-}
-.params-item p{
-    font-size: 20px;
     margin: 0;
-    padding: 5px 0;
-    cursor: pointer;
-    transition: 0.2s;
 }
-.active{
-    background: var(--main-color);
-    color: var(--secondary-color);
-}
-.params-item h2{
+h3{
     margin-top: 0;
+    font-size: 20px;
 }
-.params-item div{
+#start-page{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 32px;
+    align-items: center;
 }
 .params-list{
     display: flex;
@@ -59,19 +46,46 @@ h1, h2{
     justify-content: space-between;
     width: 100%;
 }
-.start-quiz{
-    margin-top: 50px;
-    align-self: flex-end;
-    padding: 10px 15px;
+.params-item{
+    width: 30%;
+    background: var(--secondary-color);
+    color: var(--main-color);
+    padding: 24px 0;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+.params-item div{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.params-item h3{
+    padding: 0 16px;
+}
+.params-item p{
+    font-size: 20px;
+    margin: 0;
+    padding: 5px 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.active{
+    background: var(--main-color);
+    color: var(--secondary-color);
+}
+button{
+    margin: 0;
+    padding: 15px 30px;
     background: var(--accent-color);
     color: var(--secondary-color);
     border: none;
-    font-size: 22px;
+    font-size: 24px;
     cursor: pointer;
     transition: 0.2s;
     font-family: 'Montserrat', sans-serif;
+    border-radius: 8px;
 }
-.start-quiz:hover{
+button:hover{
     background: var(--accent-color-hover);
 }
 .loader {
@@ -95,7 +109,7 @@ h1, h2{
     padding: 20px 0px;
     color: var(--secondary-color);
     border: none;
-    font-size: 22px;
+    font-size: 24px;
     cursor: pointer;
     transition: 0.2s;
     font-family: 'Montserrat', sans-serif;   
@@ -105,17 +119,6 @@ h1, h2{
 .answer:hover{
     background: var(--secondary-color);
     color: var(--main-color);
-}
-.answer-button, .start-again-button{
-    margin-top: 30px;
-    padding: 10px 15px;
-    background: var(--accent-color);
-    color: var(--secondary-color);
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-    transition: 0.2s;
-    font-family: 'Montserrat', sans-serif;
 }
 .active-answer{
     background: var(--secondary-color);
@@ -140,9 +143,10 @@ h1, h2{
 .result-question{
     background: var(--secondary-color);
     color: var(--main-color);
-    padding: 0px 15px;
+    padding: 15px;
     border-radius: 8px;
     width: 100%;
+    box-sizing: border-box;
 }
 .result-cont p{
     font-size: 20px;   
@@ -156,4 +160,32 @@ h1, h2{
 .question-number{
     color: var(--secondary-color);
     font-size: 35px;
+    margin-bottom: 15px;
+}
+@media screen and (max-width:1200px){
+    .root{
+        height: auto;
+        overflow: auto;
+        min-height: 100vh;
+        width: 95%;
+    }
+}
+@media screen and (max-width:600px){
+    .params-list{
+        flex-direction: column;
+        gap: 24px;
+    }
+    .params-item{
+        width: 100%;
+    }
+    .root{
+        width: 100%;
+        padding: 30px 16px;
+    }
+    section{
+        width: 100%;
+    }
+    button{
+        width: 100%;
+    }
 }

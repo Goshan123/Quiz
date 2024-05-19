@@ -2,11 +2,11 @@
 let categoriesList = document.querySelectorAll(".categories p");
 let difficulty = document.querySelectorAll(".difficulty p");
 let numSelect = document.querySelectorAll(".number p");
-let answerButton = document.querySelector(".answer-button");
+let answerButton = document.querySelector("#answer-button");
 let questionsAnswers = document.querySelectorAll(".answer");
-let startAgainButton = document.querySelector(".start-again-button");
+let startAgainButton = document.querySelector("#start-again-button");
 let root = document.querySelector(".root")
-let startButton = document.querySelector(".start-quiz");
+let startButton = document.querySelector("#start-quiz-button");
 let resultText = document.querySelector(".user-result");
 //страницы
 let startPage = document.querySelector("#start-page");
@@ -170,12 +170,14 @@ function getAnswerIndexOrder() {
   return answerIndexOrder;
 }
 function getRightAnswers(quizInfo) {
+  //получение массива с правильными ответами
   let rightAnswers = quizInfo.map((el) => {
     return el.correctAnswer;
   });
   return rightAnswers;
 }
 function renderResultPage() {
+  //отображение страницы результатов
   togglePageVisibility(questionsPage, resultPage);
   root.style.overflow = "auto"
   root.style.height = "auto"
@@ -189,6 +191,7 @@ function renderResultPage() {
     renderQuestionInfo()
 }
 function getEqualElementsNumber(arr1, arr2) {
+  //получение числа одинаковых элементов в массивах
   let matches = 0;
   arr1.forEach((el, index) => {
     if (el === arr2[index]) {
@@ -198,6 +201,7 @@ function getEqualElementsNumber(arr1, arr2) {
   return matches;
 }
 function renderQuestionInfo() {
+  //отображение информации о вопросах на странице результатов
   let fragment = "";
   let resultCont = document.querySelector(".result-cont");
   quizInfo.forEach((el, index) => {
@@ -212,6 +216,7 @@ function renderQuestionInfo() {
   resultCont.insertAdjacentHTML("afterbegin", fragment)
 }
 function setQuestionNumeration(){
+  //нумерация вопросов
   let questionNumberElement = document.querySelector(".question-number")
   let newValue = activeQuestionIndex + 1 + "/" + quizInfo.length
   questionNumberElement.textContent = newValue
