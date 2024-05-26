@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
@@ -14,7 +18,7 @@
   </head>
   <body>
     <div class="root">
-      <section id="start-page">
+      <section id="start-page" class="animate__animated animate__bounceIn">
         <h1>QUIZ</h1>
         <div class="params-list">
           <div class="params-item">
@@ -55,7 +59,10 @@
         <h2>Loading</h2>
         <span class="loader"></span>
       </section>
-      <section id="questions-page" class="hidden">
+      <section
+        id="questions-page"
+        class="hidden animate__animated animate__bounceIn"
+      >
         <div class="question-number"></div>
         <div>
           <h2></h2>
@@ -68,7 +75,10 @@
         </div>
         <button id="answer-button">ANSWER</button>
       </section>
-      <section id="result-page" class="hidden">
+      <section
+        id="result-page"
+        class="hidden animate__animated animate__bounceIn"
+      >
         <h2 class="user-result">
           Your result - <span class="quiz-result"></span>
         </h2>
