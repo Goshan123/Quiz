@@ -5,7 +5,7 @@ let numSelect = document.querySelectorAll(".number p");
 let answerButton = document.querySelector("#answer-button");
 let questionsAnswers = document.querySelectorAll(".answer");
 let startAgainButton = document.querySelector("#start-again-button");
-let root = document.querySelector(".root")
+let root = document.querySelector(".root");
 let startButton = document.querySelector("#start-quiz-button");
 let resultText = document.querySelector(".user-result");
 //страницы
@@ -27,6 +27,10 @@ startAgainButton.addEventListener("click", () => {
   location.reload();
 });
 document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    togglePageVisibility(loadingPage, startPage);
+  }, 1500);
+  scrollUp();
   chooseFewElements(categoriesList);
   chooseOneElement(difficulty, "active", (id) => {
     setQuizQuery("difficulty", id);
@@ -47,7 +51,7 @@ startButton.addEventListener("click", () => {
     setTimeout(() => {
       togglePageVisibility(loadingPage, questionsPage);
       renderQuizQuestion(quizInfo[activeQuestionIndex]);
-      setQuestionNumeration()
+      setQuestionNumeration();
     }, 1500);
   } else {
     alert("You should select all of the following quiz parametres");
@@ -63,8 +67,9 @@ answerButton.addEventListener("click", () => {
     userAnswer.classList.remove("active-answer");
     activeQuestionIndex = activeQuestionIndex + 1;
     if (activeQuestionIndex < quizInfo.length) {
+      scrollUp()
       renderQuizQuestion(quizInfo[activeQuestionIndex]);
-      setQuestionNumeration()
+      setQuestionNumeration();
     } else {
       renderResultPage();
     }
@@ -72,7 +77,7 @@ answerButton.addEventListener("click", () => {
     alert("You must choose one of the answers");
   }
 });
-//функции 
+//функции
 function resetActiveClass(list, className) {
   //удаление класса active у всех элементов списка
   list.forEach((el) => {
@@ -147,6 +152,7 @@ function togglePageVisibility(hiddenPage, openPage) {
   //переход на новую страницу
   openPage.classList.remove("hidden");
   hiddenPage.classList.add("hidden");
+  scrollUp()
 }
 function renderQuizQuestion(quizItem) {
   //отображение вопроса с ответами квиза
@@ -179,8 +185,8 @@ function getRightAnswers(quizInfo) {
 function renderResultPage() {
   //отображение страницы результатов
   togglePageVisibility(questionsPage, resultPage);
-  root.style.overflow = "auto"
-  root.style.height = "auto"
+  root.style.overflow = "auto";
+  root.style.height = "auto";
   let rightAnswers = getRightAnswers(quizInfo);
   let userRightAnswersNumber = getEqualElementsNumber(
     rightAnswers,
@@ -188,7 +194,7 @@ function renderResultPage() {
   );
   document.querySelector(".quiz-result").textContent =
     userRightAnswersNumber + "/" + userAnswers.length;
-    renderQuestionInfo()
+  renderQuestionInfo();
 }
 function getEqualElementsNumber(arr1, arr2) {
   //получение числа одинаковых элементов в массивах
@@ -211,13 +217,16 @@ function renderQuestionInfo() {
     <p>Your answer: <span class="user-answer">${userAnswers[index]}</span></p>
     <p>Right answer: <span class="right-answer">${el.correctAnswer}</span></p>
   </div>`;
-    fragment += questionInfo;// тоже самое что fragment = fragment + questioonInfo
+    fragment += questionInfo; // тоже самое что fragment = fragment + questioonInfo
   });
-  resultCont.insertAdjacentHTML("afterbegin", fragment)
+  resultCont.insertAdjacentHTML("afterbegin", fragment);
 }
-function setQuestionNumeration(){
+function setQuestionNumeration() {
   //нумерация вопросов
-  let questionNumberElement = document.querySelector(".question-number")
-  let newValue = activeQuestionIndex + 1 + "/" + quizInfo.length
-  questionNumberElement.textContent = newValue
+  let questionNumberElement = document.querySelector(".question-number");
+  let newValue = activeQuestionIndex + 1 + "/" + quizInfo.length;
+  questionNumberElement.textContent = newValue;
+}
+function scrollUp() {
+    window.scroll(0, 0);
 }
