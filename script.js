@@ -67,8 +67,9 @@ answerButton.addEventListener("click", () => {
     userAnswer.classList.remove("active-answer");
     activeQuestionIndex = activeQuestionIndex + 1;
     if (activeQuestionIndex < quizInfo.length) {
-      scrollUp()
+      scrollUp();
       renderQuizQuestion(quizInfo[activeQuestionIndex]);
+      setAnimation(questionsPage);
       setQuestionNumeration();
     } else {
       renderResultPage();
@@ -152,7 +153,7 @@ function togglePageVisibility(hiddenPage, openPage) {
   //переход на новую страницу
   openPage.classList.remove("hidden");
   hiddenPage.classList.add("hidden");
-  scrollUp()
+  scrollUp();
 }
 function renderQuizQuestion(quizItem) {
   //отображение вопроса с ответами квиза
@@ -228,5 +229,13 @@ function setQuestionNumeration() {
   questionNumberElement.textContent = newValue;
 }
 function scrollUp() {
-    window.scroll(0, 0);
+  window.scroll(0, 0);
+}
+function setAnimation(page) {
+  page.classList.remove("animate__animated", "animate__slideInRight");
+  page.style.opacity = 0
+  setTimeout(() => {
+    page.style.opacity = 1
+    page.classList.add("animate__animated", "animate__slideInRight");
+  }, 100);
 }
