@@ -9,7 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-    <link rel="icon" type="image/png" href="icons/free-icon-brain-5677920.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
@@ -19,7 +19,7 @@
   </head>
   <body>
     <div class="root">
-      <section id="start-page" class="animate__animated animate__bounceIn">
+      <section id="start-page" class="animate__slideInRight animate__animated hidden">
         <h1>QUIZ</h1>
         <div class="params-list">
           <div class="params-item">
@@ -54,9 +54,9 @@
             </div>
           </div>
         </div>
-        <button id="start-quiz-button">Start Quiz</button>
+        <button id="start-quiz-button">START</button>
       </section>
-      <section id="loading-page" class="hidden">
+      <section id="loading-page">
         <h2>Loading</h2>
         <span class="loader"></span>
       </section>
@@ -84,7 +84,7 @@
           Your result - <span class="quiz-result"></span>
         </h2>
         <div class="result-cont"></div>
-        <button id="start-again-button">Start Again</button>
+        <button id="start-again-button">AGAIN</button>
       </section>
     </div>
     <script src="script.js"></script>
