@@ -10,6 +10,21 @@
     --border-radius-px:14px;
     --border-radius-percents:50%;
 }
+.params-item::-webkit-scrollbar {
+    display: none;
+    width: 10px;
+}
+
+.params-item::-webkit-scrollbar-track {
+    border-radius: 8px;
+    background-color: #e7e7e7;
+    border: 1px solid #cacaca;
+}
+
+.params-item::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background-color: var(--accent-color-hover);
+}
 body{
     font-family: 'Montserrat', sans-serif;
     margin: 0;
@@ -57,7 +72,7 @@ h3{
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    max-height: calc(100% - 173.5px);
+    max-height: calc(100% - 200px);
 }
 .params-item{
     width: 30%;
