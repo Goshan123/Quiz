@@ -68,9 +68,7 @@ answerButton.addEventListener("click", () => {
     activeQuestionIndex = activeQuestionIndex + 1;
     if (activeQuestionIndex < quizInfo.length) {
       scrollUp();
-      renderQuizQuestion(quizInfo[activeQuestionIndex]);
-      setAnimation(questionsPage);
-      setQuestionNumeration();
+      animateQuestionRender(quizInfo[activeQuestionIndex])
     } else {
       renderResultPage();
     }
@@ -228,14 +226,23 @@ function setQuestionNumeration() {
   let newValue = activeQuestionIndex + 1 + "/" + quizInfo.length;
   questionNumberElement.textContent = newValue;
 }
-function scrollUp() {
+function scrollUp() {//скролл страницы наверх
   window.scroll(0, 0);
 }
-function setAnimation(page) {
-  page.classList.remove("animate__animated", "animate__slideInRight");
-  page.style.opacity = 0
+function animateQuestionRender(questionInfo){//отрисовывает новый вопрос с анимацией
+  answerButton.disabled = true
+  answerButton.style.opacity = 0.5
+  let content = document.querySelector(".question-text-content")
+  content.classList.remove("animate__animated", "animate__lightSpeedInRight")
+  content.classList.add("animate__animated", "animate__lightSpeedOutLeft")
   setTimeout(() => {
-    page.style.opacity = 1
-    page.classList.add("animate__animated", "animate__slideInRight");
-  }, 100);
+  content.classList.remove("animate__animated", "animate__lightSpeedOutLeft")
+  content.classList.add("animate__animated", "animate__lightSpeedInRight")
+  renderQuizQuestion(questionInfo);
+  setQuestionNumeration();
+}, 1000);
+setTimeout(() => {
+  answerButton.disabled = false
+  answerButton.style.opacity = 1
+}, 2000);
 }
